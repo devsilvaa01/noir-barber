@@ -4,667 +4,342 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#05070a">
+  <meta name="description" content="SILVA DEV — Desenvolvedor Full Stack em formação, estudante de Engenharia de Software e criador de experiências digitais.">
 
-  <meta
-    name="description"
-    content="NØIR BARBER — Barbearia premium especializada em cortes, barba e estilo."
-  >
+  <title>SILVA DEV | Desenvolvedor Full Stack</title>
 
-  <meta name="theme-color" content="#0a0a0a">
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <link rel="apple-touch-icon" href="img/favicon.png">
-
-  <title>NØIR BARBER</title>
-
-  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+  <div class="fundo-luz" aria-hidden="true"></div>
 
-  <!-- Cursor decorativo -->
-  <div class="cursor"></div>
-  <div class="cursor-follower"></div>
+  <header class="header" id="topo">
+    <div class="container header-conteudo">
+      <a class="logo" href="#inicio" aria-label="SILVA DEV - Início">
+        <img src="img/logo-silva-dev.png" alt="Logo SILVA DEV">
+      </a>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="menu-principal"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-  <header class="header" id="header">
-
-    <a href="#inicio" class="logo">
-      <span>NØIR</span>
-      <small>BARBER</small>
-    </a>
-
-    <nav class="menu" aria-label="Navegação principal">
-      <a href="#inicio">Início</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
-    <a
-      href="https://wa.me/5562999999999"
-      class="botao botao-header"
-      target="_blank"
-      rel="noopener"
-    >
-      <span>Agendar horário</span>
-      <img src="img/whatsapp-svgrepo-com.svg" alt="">
-    </a>
-
-    <button class="menu-mobile" type="button" aria-label="Abrir menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
-
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#bora-na-tech">Bora na Tech</a>
+        <a class="menu-contato" href="#contato">Contato <span>↗</span></a>
+      </nav>
+    </div>
   </header>
 
-
   <main>
+    <!-- INÍCIO -->
+    <section class="hero secao" id="inicio">
+      <div class="container hero-conteudo">
+        <div class="hero-texto revelar">
+          <span class="etiqueta">
+            <span class="status-ponto"></span>
+            DESENVOLVEDOR EM FORMAÇÃO
+          </span>
 
-    <!-- =========================
-         HERO
-    ========================== -->
+          <p class="hero-introducao">Olá, eu sou o</p>
 
-    <section class="hero" id="inicio">
+          <h1 class="hero-titulo">
+            SILVA <span class="texto-contorno">DEV</span><span class="ponto-titulo">.</span>
+          </h1>
 
-      <div class="hero-bg"></div>
+          <h2 class="hero-subtitulo">
+            Transformando ideias em experiências
+            <span class="destaque-inclinado">digitais.</span>
+          </h2>
 
-      <div class="hero-grid"></div>
+          <p class="hero-descricao">
+            Estudante de Engenharia de Software e desenvolvedor Full Stack em formação.
+            Construindo projetos, explorando tecnologias e evoluindo a cada linha de código.
+          </p>
 
-      <div class="hero-conteudo reveal">
+          <div class="hero-acoes">
+            <a href="#projetos" class="botao botao-principal">
+              Explorar projetos <span>↗</span>
+            </a>
+            <a href="#sobre" class="botao botao-secundario">
+              Conhecer minha história
+            </a>
+          </div>
 
-        <div class="eyebrow">
-          <span></span>
-          BARBEARIA CONTEMPORÂNEA
+          <div class="hero-rodape">
+            <span>DESENVOLVIMENTO</span>
+            <span class="separador">/</span>
+            <span>CRIATIVIDADE</span>
+            <span class="separador">/</span>
+            <span>EVOLUÇÃO</span>
+          </div>
         </div>
 
-        <h1>
-          SEU ESTILO
-          <strong>NÃO SEGUE PADRÕES.</strong>
-        </h1>
 
-        <p>
-          Mais que um corte. Uma experiência criada para quem entende
-          que presença começa nos detalhes.
-        </p>
+    <!-- SOBRE MIM -->
+    <section class="secao sobre" id="sobre">
+      <div class="container">
+        <div class="cabecalho-secao revelar">
+          <span class="sobretitulo">01 / SOBRE MIM</span>
+          <h2 class="titulo-secao">
+            Minha vontade é
+            <span class="destaque-inclinado">CRIAR.</span>
+          </h2>
+        </div>
 
-        <div class="hero-acoes">
+        <div class="sobre-grade">
+          <div class="sobre-chamada revelar">
+            <p class="sobre-frase">
+              Mais do que escrever código,
+              <span>quero construir algo que faça sentido.</span>
+            </p>
+          </div>
+
+          <div class="sobre-texto revelar">
+            <p>
+              Sou estudante de Engenharia de Software e desenvolvedor Full Stack em formação.
+              Estou construindo minha base na programação por meio de estudos, prática e projetos próprios.
+            </p>
+
+            <p>
+              Gosto de transformar ideias em interfaces funcionais, explorar novas tecnologias
+              e encontrar soluções para problemas reais.
+            </p>
+
+            <p>
+              Ainda estou no começo da jornada, mas cada projeto é uma oportunidade de aprender,
+              melhorar e chegar mais longe.
+            </p>
+
+            <a href="#contato" class="link-seta">
+              Vamos conversar <span>↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="tecnologias revelar">
+          <span class="sobretitulo">TECNOLOGIAS EM APRENDIZADO</span>
+
+          <div class="tecnologias-lista">
+            <span class="tecnologia">HTML5</span>
+            <span class="tecnologia">CSS3</span>
+            <span class="tecnologia">JavaScript <small>EM APRENDIZADO</small></span>
+            <span class="tecnologia">Git</span>
+            <span class="tecnologia">GitHub</span>
+            <span class="tecnologia">React <small>PRÓXIMO PASSO</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section class="secao projetos" id="projetos">
+      <div class="container">
+        <div class="cabecalho-secao projetos-cabecalho revelar">
+          <div>
+            <span class="sobretitulo">02 / PORTFÓLIO</span>
+            <h2 class="titulo-secao">
+              Feito para <span class="destaque-inclinado">funcionar.</span>
+            </h2>
+          </div>
+
+          <p class="texto-cabecalho">
+            Projetos que transformam estudo em prática e ideias em experiências digitais.
+          </p>
+        </div>
+
+        <article class="projeto-card revelar">
+          <a
+            class="projeto-imagem"
+            href="https://devsilvaa01.github.io/noir-barber/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir projeto NØIR BARBER"
+          >
+            <img
+              src="img/noir-barber.png"
+              alt="Prévia do site NØIR BARBER"
+              loading="lazy"
+            >
+            <span class="projeto-imagem-legenda">VISUALIZAR PROJETO ↗</span>
+          </a>
+
+          <div class="projeto-info">
+            <div class="projeto-titulo-linha">
+              <div>
+                <span class="projeto-categoria">PROJETO WEB / 01</span>
+                <h3>NØIR BARBER</h3>
+              </div>
+
+              <a
+                class="projeto-seta"
+                href="https://devsilvaa01.github.io/noir-barber/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visitar NØIR BARBER"
+              >↗</a>
+            </div>
+
+            <p>
+              Projeto de site para barbearia com identidade visual marcante,
+              apresentação dos serviços e uma experiência pensada para diferentes telas.
+            </p>
+
+            <div class="projeto-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive Design</span>
+            </div>
+
+            <a
+              class="link-seta"
+              href="https://devsilvaa01.github.io/noir-barber/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver projeto completo <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <div class="projetos-futuro revelar">
+          <span class="futuro-simbolo">+</span>
+          <p>Mais ideias estão virando projetos.</p>
+          <span class="futuro-detalhe">EM CONSTRUÇÃO</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BORA NA TECH -->
+    <section class="secao bora" id="bora-na-tech">
+      <div class="container">
+        <div class="bora-card revelar">
+          <div class="bora-conteudo">
+            <span class="sobretitulo">03 / OPORTUNIDADE</span>
+
+            <h2 class="titulo-secao">
+              Evolua na sua carreira com
+              <span class="destaque-inclinado bora-destaque">BORA NA TECH.</span>
+            </h2>
+
+            <p>
+              Uma plataforma com ferramentas para ajudar quem está buscando oportunidades
+              na tecnologia, preparar currículos e se desenvolver profissionalmente.
+            </p>
+
+            <div class="bora-beneficios">
+              <span><i>↗</i> Currículos</span>
+              <span><i>↗</i> Preparação para entrevistas</span>
+              <span><i>↗</i> Avaliação de perfil</span>
+            </div>
+
+            <div class="cupom-area">
+              <span class="cupom-legenda">USE MEU CUPOM DE DESCONTO</span>
+
+              <div class="cupom-linha">
+                <span class="cupom-codigo" id="cupom-codigo">SILVA20</span>
+                <button class="botao-copiar" id="copiar-cupom" type="button">
+                  Copiar cupom <span>⧉</span>
+                </button>
+              </div>
+
+              <p class="cupom-feedback" id="cupom-feedback" aria-live="polite"></p>
+            </div>
+
+            <a
+              href="https://boranatech.com.br/planos?ref=SILVA20"
+              class="botao botao-principal"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conhecer a plataforma <span>↗</span>
+            </a>
+
+            <p class="bora-nota">Use o cupom SILVA20 para obter o desconto anunciado pela plataforma.</p>
+          </div>
+
+          
+          
+            
+    </section>
+
+    <!-- CONTATO -->
+    <section class="secao contato" id="contato">
+      <div class="container">
+        <div class="contato-conteudo revelar">
+          <span class="sobretitulo">04 / CONTATO</span>
+
+          <h2 class="contato-titulo">
+            Tem uma ideia?
+            <span class="destaque-inclinado">Vamos conversar.</span>
+          </h2>
+
+          <p>
+            Estou aberto a conexões, oportunidades de estágio, projetos e conversas
+            sobre desenvolvimento de software.
+          </p>
 
           <a
-            href="https://wa.me/5562999999999"
-            class="botao"
+            class="botao botao-principal"
+            href="https://www.instagram.com/silvaa_dev/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
-            <span>Agendar horário</span>
-            <img src="img/whatsapp-svgrepo-com.svg" alt="">
+            Me encontre no Instagram <span>↗</span>
           </a>
 
-          <a href="#galeria" class="link-galeria">
-            <span>Ver trabalhos</span>
-            <i>↓</i>
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-imagem reveal-right">
-
-        <div class="imagem-moldura"></div>
-
-        <img
-          src="img/imagem-hero.png"
-          alt="Barbeiro realizando um corte"
-        >
-
-        <div class="hero-numero">
-          <span>01</span>
-          <div></div>
-          <small>STYLE<br>MATTERS</small>
-        </div>
-
-      </div>
-
-
-      <div class="hero-scroll">
-        <span>SCROLL</span>
-        <div></div>
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         MARQUEE
-    ========================== -->
-
-    <div class="marquee">
-      <div class="marquee-track">
-
-        <span>NØIR BARBER</span>
-        <b>✦</b>
-        <span>PRECISION</span>
-        <b>✦</b>
-        <span>STYLE</span>
-        <b>✦</b>
-        <span>ATTITUDE</span>
-        <b>✦</b>
-        <span>NØIR BARBER</span>
-        <b>✦</b>
-        <span>PRECISION</span>
-        <b>✦</b>
-        <span>STYLE</span>
-        <b>✦</b>
-        <span>ATTITUDE</span>
-        <b>✦</b>
-
-      </div>
-    </div>
-
-
-    <!-- =========================
-         SERVIÇOS
-    ========================== -->
-
-    <section class="servicos section" id="servicos">
-
-      <div class="section-heading reveal">
-
-        <div>
-          <span class="section-number">01 / SERVIÇOS</span>
-
-          <h2>
-            O CORTE
-            <em>É SÓ O COMEÇO.</em>
-          </h2>
-        </div>
-
-        <p>
-          Técnica, precisão e personalidade em cada atendimento.
-          Escolha sua experiência.
-        </p>
-
-      </div>
-
-
-      <div class="cards">
-
-        <article class="card reveal">
-
-          <div class="card-top">
-            <span>01</span>
-            <img src="img/tesoura-dourada.svg" alt="">
-          </div>
-
-          <h3>CORTE</h3>
-
-          <p>
-            Corte personalizado pensado para combinar
-            com seu estilo e formato de rosto.
-          </p>
-
-          <div class="card-bottom">
-            <strong>R$ 35</strong>
-            <span>→</span>
-          </div>
-
-        </article>
-
-
-        <article class="card reveal">
-
-          <div class="card-top">
-            <span>02</span>
-            <img src="img/barba-dourada.svg" alt="">
-          </div>
-
-          <h3>BARBA</h3>
-
-          <p>
-            Modelagem, acabamento e cuidado para deixar
-            sua barba impecável.
-          </p>
-
-          <div class="card-bottom">
-            <strong>R$ 25</strong>
-            <span>→</span>
-          </div>
-
-        </article>
-
-
-        <article class="card card-destaque reveal">
-
-          <div class="card-top">
-            <span>03</span>
-
-            <div class="card-icones">
-              <img src="img/tesoura-dourada.svg" alt="">
-              <img src="img/barba-dourada.svg" alt="">
-            </div>
-
-          </div>
-
-          <h3>CORTE + BARBA</h3>
-
-          <p>
-            A experiência completa para renovar
-            completamente seu visual.
-          </p>
-
-          <div class="card-bottom">
-            <strong>R$ 55</strong>
-            <span>→</span>
-          </div>
-
-          <div class="destaque-label">MAIS PEDIDO</div>
-
-        </article>
-
-
-        <article class="card reveal">
-
-          <div class="card-top">
-            <span>04</span>
-            <img src="img/acabamento-dourado.svg" alt="">
-          </div>
-
-          <h3>ACABAMENTO</h3>
-
-          <p>
-            Detalhes precisos para manter seu corte
-            sempre alinhado.
-          </p>
-
-          <div class="card-bottom">
-            <strong>R$ 15</strong>
-            <span>→</span>
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         SOBRE
-    ========================== -->
-
-    <section class="sobre section" id="sobre">
-
-      <div class="sobre-imagem reveal-left">
-
-        <div class="imagem-label">
-          <span>NØIR</span>
-          <small>EST. 2026</small>
-        </div>
-
-        <img
-          src="img/barbearia.png"
-          alt="Interior da NØIR Barber"
-        >
-
-      </div>
-
-
-      <div class="sobre-conteudo reveal-right">
-
-        <span class="section-number">02 / SOBRE NÓS</span>
-
-        <h2>
-          TRADIÇÃO
-          <em>COM NOVA ATITUDE.</em>
-        </h2>
-
-        <p>
-          A NØIR nasceu da união entre a tradição da barbearia
-          clássica e uma visão contemporânea de estilo.
-        </p>
-
-        <p>
-          Aqui, cada cliente recebe mais do que um serviço.
-          Recebe atenção aos detalhes, atendimento próximo
-          e um visual pensado para sua personalidade.
-        </p>
-
-
-        <div class="sobre-destaques">
-
-          <div>
-            <span>01</span>
-            <img src="img/profissionais.png" alt="">
-            <h3>Profissionais<br>experientes</h3>
-          </div>
-
-          <div>
-            <span>02</span>
-            <img src="img/ambiente.png" alt="">
-            <h3>Ambiente<br>confortável</h3>
-          </div>
-
-          <div>
-            <span>03</span>
-            <img src="img/produtos.png" alt="">
-            <h3>Produtos<br>de qualidade</h3>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         EXPERIÊNCIA EXCLUSIVA
-    ========================== -->
-
-    <section class="experiencia">
-
-      <div class="experiencia-bg"></div>
-
-      <div class="experiencia-conteudo reveal">
-
-        <span class="section-number">03 / A EXPERIÊNCIA</span>
-
-        <h2>
-          NÃO É APENAS
-          <em>UM CORTE.</em>
-        </h2>
-
-        <p>
-          É aquele momento em que você senta, relaxa
-          e deixa o resto do mundo do lado de fora.
-        </p>
-
-        <div class="experiencia-linha"></div>
-
-        <span class="experiencia-frase">
-          PRECISION • STYLE • ATTITUDE
-        </span>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         GALERIA
-    ========================== -->
-
-    <section class="galeria section" id="galeria">
-
-      <div class="section-heading reveal">
-
-        <div>
-          <span class="section-number">04 / GALERIA</span>
-
-          <h2>
-            NOSSO
-            <em>TRABALHO.</em>
-          </h2>
-        </div>
-
-        <p>
-          Alguns resultados para você conhecer
-          nosso estilo de trabalho.
-        </p>
-
-      </div>
-
-
-      <div class="fotos">
-
-        <figure class="foto foto-grande reveal-zoom">
-          <img
-            src="img/corte-buzz-cut.png"
-            alt="Corte Buzz Cut"
-          >
-          <figcaption>
-            <span>01</span>
-            BUZZ CUT
-          </figcaption>
-        </figure>
-
-
-        <figure class="foto reveal-zoom">
-          <img
-            src="img/corte-high-fade.png"
-            alt="Corte High Fade"
-          >
-          <figcaption>
-            <span>02</span>
-            HIGH FADE
-          </figcaption>
-        </figure>
-
-
-        <figure class="foto reveal-zoom">
-          <img
-            src="img/corte-lowfade.png"
-            alt="Corte Low Fade"
-          >
-          <figcaption>
-            <span>03</span>
-            LOW FADE
-          </figcaption>
-        </figure>
-
-
-        <figure class="foto foto-grande reveal-zoom">
-          <img
-            src="img/corte-degrade-medio.png"
-            alt="Corte degradê médio"
-          >
-          <figcaption>
-            <span>04</span>
-            MID FADE
-          </figcaption>
-        </figure>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTATO
-    ========================== -->
-
-    <section class="contato section" id="contato">
-
-      <div class="contato-header reveal">
-
-        <span class="section-number">05 / CONTATO</span>
-
-        <h2>
-          SEU PRÓXIMO
-          <em>VISUAL COMEÇA AQUI.</em>
-        </h2>
-
-      </div>
-
-
-      <div class="contato-grid">
-
-        <div class="contato-info reveal-left">
-
-          <p>
-            Escolha seu serviço, mande uma mensagem
-            e vamos encontrar o melhor horário para você.
-          </p>
-
-
-          <div class="informacoes">
-
+          <div class="contato-links">
             <a
-              href="https://wa.me/5562999999999"
-              class="informacao"
+              href="https://github.com/devsilvaa01"
               target="_blank"
-              rel="noopener"
-            >
-              <img src="img/icone-whatsapp-dourado.png" alt="">
-              <div>
-                <small>WHATSAPP</small>
-                <strong>(62) 99999-9999</strong>
-              </div>
-              <span>↗</span>
-            </a>
-
-
-            <div class="informacao">
-              <img src="img/icone-localizacao-dourado.png" alt="">
-              <div>
-                <small>LOCALIZAÇÃO</small>
-                <strong>Goiânia — GO</strong>
-              </div>
-              <span>↗</span>
-            </div>
-
+              rel="noopener noreferrer"
+            >GitHub ↗</a>
 
             <a
-              href="#"
-              class="informacao"
-            >
-              <img src="img/insta.png" alt="">
-              <div>
-                <small>INSTAGRAM</small>
-                <strong>@noir.barber</strong>
-              </div>
-              <span>↗</span>
-            </a>
-
+              href="https://www.linkedin.com/in/silvaadev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >LinkedIn ↗</a>
           </div>
-
         </div>
-
-
-        <form class="contato-formulario reveal-right">
-
-          <div class="form-linha">
-
-            <label>
-              <span>SEU NOME</span>
-              <input
-                type="text"
-                name="nome"
-                placeholder="Como podemos te chamar?"
-                required
-              >
-            </label>
-
-
-            <label>
-              <span>WHATSAPP</span>
-              <input
-                type="tel"
-                name="whatsapp"
-                placeholder="(62) 99999-9999"
-                required
-              >
-            </label>
-
-          </div>
-
-
-          <label>
-            <span>SERVIÇO</span>
-
-            <select name="servico" required>
-              <option value="" selected disabled>
-                Selecione seu serviço
-              </option>
-              <option>Corte</option>
-              <option>Barba</option>
-              <option>Corte + Barba</option>
-              <option>Acabamento</option>
-            </select>
-
-          </label>
-
-
-          <label>
-            <span>MENSAGEM</span>
-
-            <textarea
-              name="mensagem"
-              placeholder="Alguma observação? (opcional)"
-            ></textarea>
-
-          </label>
-
-
-          <button type="submit" class="botao botao-form">
-
-            <span>Enviar mensagem</span>
-
-            <img
-              src="img/whatsapp-svgrepo-com.svg"
-              alt=""
-            >
-
-          </button>
-
-        </form>
-
       </div>
-
     </section>
-
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
+  <!-- RODAPÉ -->
   <footer class="footer">
+    <div class="container footer-conteudo">
+      <a class="footer-logo" href="#inicio" aria-label="Voltar ao início">
+        <img src="img/logo-silva-dev.png" alt="SILVA DEV">
+      </a>
 
-    <div class="footer-logo">
-      <span>NØIR</span>
-      <small>BARBER</small>
+      <p class="footer-frase">Transformando código em experiências.</p>
+
+      <div class="footer-direitos">
+        <span>© <span id="ano-atual"></span> SILVA DEV</span>
+        <span>Feito com dedicação e código.</span>
+      </div>
     </div>
-
-    <p>
-      © 2026 NØIR BARBER. Todos os direitos reservados.
-    </p>
-
-    <a href="#inicio">Voltar ao topo ↑</a>
-
   </footer>
 
-
-  <!-- WHATSAPP -->
-
-  <a
-    href="https://wa.me/5562999999999"
-    class="whatsapp-flutuante"
-    target="_blank"
-    rel="noopener"
-    aria-label="Falar pelo WhatsApp"
-  >
-    <img src="img/whatsapp-svgrepo-com.svg" alt="">
-    <span>AGENDAR</span>
-  </a>
-
-
-  <script src="script.js"></script>
-
+  <a class="voltar-topo" href="#topo" aria-label="Voltar ao topo">↑</a>
 </body>
 </html>
