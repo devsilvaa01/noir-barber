@@ -1,135 +1,155 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector(".header");
 
-  if (header) {
-    const updateHeader = () => {
-      header.classList.toggle("scrolled", window.scrollY > 50);
-    };
-    window.addEventListener("scroll", updateHeader, { passive: true });
-    updateHeader();
+document.addEventListener("DOMContentLoaded", () => {
+  // MENU MOBILE
+  const menuToggle = document.querySelector("#menu-toggle");
+  const menu = document.querySelector("#menu-principal");
+
+  function fecharMenu() {
+    if (!menuToggle || !menu) return;
+
+    menu.classList.remove("aberto");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Abrir menu");
+    document.body.classList.remove("menu-aberto");
   }
 
-  /* MENU MOBILE */
-  const menuButton = document.querySelector(".menu-mobile");
-  const menu = document.querySelector(".menu");
+  function alternarMenu() {
+    if (!menuToggle || !menu) return;
 
-  if (menuButton && menu) {
-    menuButton.setAttribute("aria-expanded", "false");
+    const aberto = menuToggle.getAttribute("aria-expanded") !== "true";
 
-    const closeMenu = () => {
-      menu.classList.remove("aberto");
-      menuButton.classList.remove("aberto");
-      document.body.classList.remove("menu-aberto");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.setAttribute("aria-label", "Abrir menu");
-    };
+    menu.classList.toggle("aberto", aberto);
+    menuToggle.setAttribute("aria-expanded", String(aberto));
+    menuToggle.setAttribute(
+      "aria-label",
+      aberto ? "Fechar menu" : "Abrir menu"
+    );
+    document.body.classList.toggle("menu-aberto", aberto);
+  }
 
-    menuButton.addEventListener("click", () => {
-      const open = !menu.classList.contains("aberto");
-      menu.classList.toggle("aberto", open);
-      menuButton.classList.toggle("aberto", open);
-      document.body.classList.toggle("menu-aberto", open);
-      menuButton.setAttribute("aria-expanded", String(open));
-      menuButton.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  if (menuToggle && menu) {
+    menuToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      alternarMenu();
     });
 
     menu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
+      link.addEventListener("click", fecharMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        menuToggle.getAttribute("aria-expanded") === "true" &&
+        !menu.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        fecharMenu();
+      }
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") closeMenu();
+      if (event.key === "Escape") fecharMenu();
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 800) closeMenu();
+      if (window.innerWidth > 820) fecharMenu();
     });
   }
 
-  /* REVEAL */
-  const elements = document.querySelectorAll(
-    ".reveal, .reveal-left, .reveal-right, .reveal-zoom"
+  // ANIMAÇÕES AO ROLAR
+  const elementosRevelar = document.querySelectorAll(".revelar");
+  const movimentoReduzido = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
   );
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries, observerInstance) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("active");
-        observerInstance.unobserve(entry.target);
-      });
-    }, {
-      threshold: 0.14,
-      rootMargin: "0px 0px -55px 0px"
-    });
+  if (
+    "IntersectionObserver" in window &&
+    !movimentoReduzido.matches
+  ) {
+    const observador = new IntersectionObserver(
+      (entradas, observer) => {
+        entradas.forEach((entrada) => {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.add("visivel");
+            observer.unobserve(entrada.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px",
+      }
+    );
 
-    elements.forEach((element) => observer.observe(element));
+    elementosRevelar.forEach((elemento) => {
+      observador.observe(elemento);
+    });
   } else {
-    elements.forEach((element) => element.classList.add("active"));
-  }
-
-  /* LINKS INTERNOS */
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const id = link.getAttribute("href");
-      if (!id || id === "#") return;
-
-      const target = document.querySelector(id);
-      if (!target) return;
-
-      event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
-  /* FORM -> WHATSAPP */
-  const form = document.querySelector(".contato-formulario");
-
-  if (form) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const nome = form.querySelector('[name="nome"]')?.value.trim() || "";
-      const whatsapp = form.querySelector('[name="whatsapp"]')?.value.trim() || "";
-      const servico = form.querySelector('[name="servico"]')?.value.trim() || "";
-      const mensagem = form.querySelector('[name="mensagem"]')?.value.trim() || "";
-
-      let text = "Olá! Gostaria de agendar um horário.";
-      if (nome) text += `\n\nNome: ${nome}`;
-      if (whatsapp) text += `\nWhatsApp: ${whatsapp}`;
-      if (servico) text += `\nServiço: ${servico}`;
-      if (mensagem) text += `\nMensagem: ${mensagem}`;
-
-      const url = `https://wa.me/5562999999999?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank", "noopener,noreferrer");
+    elementosRevelar.forEach((elemento) => {
+      elemento.classList.add("visivel");
     });
   }
 
-  /* CURSOR DESKTOP */
-  const cursor = document.querySelector(".cursor");
-  const follower = document.querySelector(".cursor-follower");
+  // ANO DO RODAPÉ
+  const anoAtual = String(new Date().getFullYear());
+  const elementoAno = document.querySelector("#ano-atual");
 
-  if (cursor && follower && window.matchMedia("(pointer: fine)").matches) {
-    let mouseX = -100, mouseY = -100;
-    let followerX = -100, followerY = -100;
+  if (elementoAno) {
+    elementoAno.textContent = anoAtual;
+  }
 
-    document.body.classList.add("cursor-ready");
+  // COPIAR CUPOM
+  const botaoCopiar = document.querySelector("#copiar-cupom");
+  const feedbackCupom = document.querySelector("#cupom-feedback");
+  const codigoCupom = document.querySelector("#cupom-codigo");
 
-    window.addEventListener("mousemove", (event) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-      cursor.style.left = `${mouseX}px`;
-      cursor.style.top = `${mouseY}px`;
-    }, { passive: true });
+  async function copiarTexto(texto) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(texto);
+      return;
+    }
 
-    const animateCursor = () => {
-      followerX += (mouseX - followerX) * 0.11;
-      followerY += (mouseY - followerY) * 0.11;
-      follower.style.left = `${followerX}px`;
-      follower.style.top = `${followerY}px`;
-      requestAnimationFrame(animateCursor);
-    };
+    const campoTemporario = document.createElement("textarea");
+    campoTemporario.value = texto;
+    campoTemporario.setAttribute("readonly", "");
+    campoTemporario.style.position = "fixed";
+    campoTemporario.style.left = "-9999px";
 
-    animateCursor();
+    document.body.appendChild(campoTemporario);
+    campoTemporario.select();
+
+    const copiou = document.execCommand("copy");
+    campoTemporario.remove();
+
+    if (!copiou) {
+      throw new Error("Não foi possível copiar o cupom.");
+    }
+  }
+
+  if (botaoCopiar && codigoCupom) {
+    botaoCopiar.addEventListener("click", async () => {
+      const codigo = codigoCupom.textContent.trim();
+
+      if (!codigo) return;
+
+      try {
+        await copiarTexto(codigo);
+        botaoCopiar.textContent = "Copiado!";
+
+        if (feedbackCupom) {
+          feedbackCupom.textContent = "Cupom copiado com sucesso!";
+        }
+      } catch (erro) {
+        if (feedbackCupom) {
+          feedbackCupom.textContent =
+            "Não foi possível copiar automaticamente. Copie o código: " +
+            codigo;
+        }
+      }
+
+      window.setTimeout(() => {
+        botaoCopiar.innerHTML = 'Copiar cupom <span>⧉</span>';
+      }, 2000);
+    });
   }
 });
